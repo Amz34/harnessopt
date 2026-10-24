@@ -59,3 +59,7 @@ python3 -m harnessopt compact /path/to/workspace
 ## License
 
 MIT License — see [LICENSE](LICENSE).
+
+---
+
+Part of [my always-on agent stack](https://github.com/Amz34) · [Awesome Agent Infrastructure](https://github.com/Amz34/awesome-agent-infrastructure) (135 live-checked building blocks).
