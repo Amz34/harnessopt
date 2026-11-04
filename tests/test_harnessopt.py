@@ -166,6 +166,17 @@ class TestHarnessOpt(unittest.TestCase):
             second = compact_workspace(root, dry_run=True)
             self.assertFalse(second[0].changed)
 
+    def test_meta_harness_templates_and_gate(self):
+        from harnessopt.gate import list_templates, get_template, run_pipeline
+        tmpls = list_templates()
+        self.assertIn("software-change", tmpls)
+        self.assertIn("doc-sync", tmpls)
+        t = get_template("doc-sync")
+        self.assertIsNotNone(t)
+        with tempfile.TemporaryDirectory() as td:
+            res = run_pipeline("doc-sync", Path(td), dry_run=True)
+            self.assertTrue(res["success"])
+
 
 if __name__ == "__main__":
     unittest.main()
